@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>2D Sierpinski carpet LAST</title>
+
+<!--Vertex Shader에 전송하는 변수 'v'Position-->
+<script id="vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+
+void
+main()
+{
+    gl_Position = vPosition;
+}
+</script>
+
+<!--fragment shader-->
+<!--정밀도는 medium으로-->
+<!--X => (배경색을 빨강으로 하고 안의 네모를 힌색으로 구현)-->
+<script id="fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+
+void
+main()
+{
+    gl_FragColor = vec4( 1.0, 0.0, 0.0, 1.0 );
+}
+</script>
+
+
+<script type="text/javascript" src="webgl-utils.js"></script>
+<script type="text/javascript" src="initShaders.js"></script>
+<!--
+gasket2.js 에서 사용할 라이브러리, Web GL구동을 위한 기본적인 라이브러리
+webgl-utils.js = 웹사이트의 Common 디렉토리에 있는 WebGL context를 설정하는 표준 유틸리티
+initShaders.js = shader를 읽고, 컴파일하고, 링크하는 JS와 WebGL 코드
+-->
+<script type="text/javascript" src="MV.js"></script>
+<!--수학함수 벡터관리 함수, 자체 행렬 벡터 패키지(책의 저자가 제공)-->
+<script type="text/javascript" src="carpetLAST.js"></script>
+<!-- 실행 하려는 프로그램, 응용 프로그램 파일-->
+</head>   
+
+<body>
+	<!-- 캔버스 정의-->
+<canvas id="gl-canvas" width="512" height="512">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+</body>
+</html>
